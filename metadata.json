@@ -1,0 +1,6 @@
+{
+  "name": "BNI Mobile Profile Generator",
+  "description": "URLを入力するだけでスマホに最適化されたスマート名刺・1to1プロフィールページを自動生成。画像・連絡先・GAINS・1to1シートを完全抽出。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
