@@ -7,23 +7,50 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
+    background-color: #0b0a0d;
+    color: #f5eff5;
   }
 }
 
-/* Custom scrollbar for mobile drawers & tabs */
+/* Custom scrollbars */
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(156, 163, 175, 0.4);
+  background: rgba(244, 173, 219, 0.2);
   border-radius: 9999px;
 }
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(244, 173, 219, 0.4);
+}
 
-/* Perspective for 3D card flip */
+/* Text Gradients */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #f4addb 50%, #e879f9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #f5eff5 0%, #d8b4fe 50%, #f4addb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glow and ambience */
+.glow-pink {
+  box-shadow: 0 0 40px -10px rgba(244, 173, 219, 0.25);
+}
+
+.glow-subtle {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(244, 173, 219, 0.12);
+}
+
+/* 3D Flip Card */
 .perspective-1000 {
   perspective: 1000px;
 }
@@ -33,6 +60,64 @@
 .backface-hidden {
   backface-visibility: hidden;
 }
-.rotate-y-180 {
-  transform: rotateY(180deg);
+
+/* ===================================================
+   PRESENTATION SLIDE PRINT / EXPORT STYLES
+   =================================================== */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+  
+  html, body {
+    background-color: #0b0a0d !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Hide everything except the print container */
+  body * {
+    visibility: hidden;
+  }
+
+  .presentation-slide-deck,
+  .presentation-slide-deck * {
+    visibility: visible;
+  }
+
+  .presentation-slide-deck {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #0b0a0d !important;
+  }
+
+  .presentation-slide {
+    width: 100vw !important;
+    height: 100vh !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
+    padding: 40px 50px !important;
+    background-color: #0b0a0d !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
 }

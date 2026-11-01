@@ -25,9 +25,11 @@ function getCleanText($: cheerio.CheerioAPI, el: any): string {
 function normalizeTargetUrl(input: string): { url: string; id: string } {
   let cleaned = input.trim();
   
-  // If it's already an id parameter
+  // If it's already an id parameter or relative path
   if (cleaned.startsWith('share?id=')) {
     cleaned = cleaned.substring('share?id='.length);
+  } else if (cleaned.startsWith('viewsheets.php?id=')) {
+    cleaned = cleaned.substring('viewsheets.php?id='.length);
   } else if (cleaned.startsWith('?id=')) {
     cleaned = cleaned.substring('?id='.length);
   } else if (cleaned.startsWith('id=')) {
